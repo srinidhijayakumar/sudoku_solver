@@ -10,7 +10,15 @@ def create_grid(root):
             row.append(cell)
         grid.append(row)
     return grid
+def main():
+    root = tk.Tk()
+    root.title("Sudoku Solver")
+    root.configure(bg="blue")
+    grid = create_grid(root)
+    solve_button = tk.Button(root, text="Solve", command=lambda: solve_sudoku(grid))
+    solve_button.grid(row=9, columnspan=9)
 
+    root.mainloop()
 def print_sudoku(grid):
     for row in grid:
         print(" ".join(str(cell) if cell != 0 else '_' for cell in row))
