@@ -10,20 +10,15 @@ def create_grid(root):
             row.append(cell)
         grid.append(row)
     return grid
-def main():
+def main():# designing the grid
     root = tk.Tk()
     root.title("Sudoku Solver")
     root.configure(bg="blue")
     grid = create_grid(root)
-    solve_button = tk.Button(root, text="Solve", command=lambda: solve_sudoku(grid))
+    solve_button = tk.Button(root, text="Solve", command=lambda: solve(grid))
     solve_button.grid(row=9, columnspan=9)
 
     root.mainloop()
-def print_sudoku(grid):
-    for row in grid:
-        print(" ".join(str(cell) if cell != 0 else '_' for cell in row))
-
-print_sudoku(sudoku_grid)
 def is_valid (grid,row,column,number):
     #column
     for c in range(len(grid[0])):
@@ -55,7 +50,8 @@ def solve(grid):
     return True
                 
 
-solve(sudoku_grid)
-print_sudoku(sudoku_grid)
-    
+
+if __name__ == "__main__":
+    main()
+
 
