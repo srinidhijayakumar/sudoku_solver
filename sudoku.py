@@ -1,14 +1,15 @@
-sudoku_grid = [
-    [5, 3, 0, 0, 7, 0, 0, 0, 0],
-    [6, 0, 0, 1, 9, 5, 0, 0, 0],
-    [0, 9, 8, 0, 0, 0, 0, 6, 0],
-    [8, 0, 0, 0, 6, 0, 0, 0, 3],
-    [4, 0, 0, 8, 0, 3, 0, 0, 1],
-    [7, 0, 0, 0, 2, 0, 0, 0, 6],
-    [0, 6, 0, 0, 0, 0, 2, 8, 0],
-    [0, 0, 0, 4, 1, 9, 0, 0, 5],
-    [0, 0, 0, 0, 8, 0, 0, 7, 9]
-]
+
+import tkinter as tk
+def create_grid(root):
+    grid = []
+    for i in range(9):
+        row = []
+        for j in range(9):
+            cell = tk.Entry(root, width=2, font=('Arial', 16), justify='center')
+            cell.grid(row=i, column=j, padx=2, pady=2)
+            row.append(cell)
+        grid.append(row)
+    return grid
 
 def print_sudoku(grid):
     for row in grid:
